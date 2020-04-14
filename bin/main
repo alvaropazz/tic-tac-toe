@@ -1,33 +1,44 @@
 #!/usr/bin/env ruby
 
 class TicTacToe
+  # define board and how it'll display to the user
 
-  def play_board (board)
+  def play_board(board)
     puts " #{board[0]} | #{board[1]} | #{board[2]} "
-    puts "-----------"
+    puts '-----------'
     puts " #{board[3]} | #{board[4]} | #{board[5]} "
-    puts "-----------"
+    puts '-----------'
     puts " #{board[6]} | #{board[7]} | #{board[8]} "
- end
-
- def selected_space (space_number)
-  space_number.to_i - 1
- end
-
- def play (board, space, player)
-  board[space] = player
- end
-
- def empty_space? (board, index)
-  if board[index] == "" || board[index] == " " || board[index] == nil
-    return false
-  else
-    return true
-
-def valid_input
-  if index == 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 && empty_space? (board, index)
-    return true
   end
-end
-  
+
+  # define which space within the board is selected
+  # input is converted into a integer and substracter one so
+  # that it matches the number of indexes
+
+  def selected_space(space_number)
+    space_number.to_i - 1
+  end
+
+  # define which space in the board is taken depending on the user's input
+
+  def play(board, space, player)
+    board[space] = player
+  end
+
+  # define a method to validate whether or not a space in the board is already taken
+
+  def empty_space?(board, index)
+    if board[index] == '' || board[index] == ' ' || board[index].nil?
+      false
+    else
+      true
+    end
+  end
+
+  # define whether or not an user's input is valid i.e. that it corresponds to one of
+  # the spaces in the board
+
+  def valid_input
+    true if index == 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 && !empty_space?
+  end
 end
