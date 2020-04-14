@@ -2,19 +2,32 @@
 
 class TicTacToe
 
-  def welcome_screen
-    puts "Tic-tac-toe is a game for two players, \n 
-    X and O, who take turns marking the spaces in a 3×3 grid. \n 
-    The player who succeeds in placing three of their marks \n 
-    in a horizontal, vertical, or diagonal row is the winner."
+  def play_board (board)
+    puts " #{board[0]} | #{board[1]} | #{board[2]} "
+    puts "-----------"
+    puts " #{board[3]} | #{board[4]} | #{board[5]} "
+    puts "-----------"
+    puts " #{board[6]} | #{board[7]} | #{board[8]} "
+ end
+
+ def selected_space (space_number)
+  space_number.to_i - 1
+ end
+
+ def play (board, space, player)
+  board[space] = player
+ end
+
+ def empty_space? (board, index)
+  if board[index] == "" || board[index] == " " || board[index] == nil
+    return false
+  else
+    return true
+
+def valid_input
+  if index == 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 && empty_space? (board, index)
+    return true
   end
-
-  def initialize
-    @board = Board.new
-
-    @player_x = Player.new("X - Player")
-    @player_o = Player.new("O - Player")
-
-    @current_player = @player_x
-  end
+end
+  
 end
