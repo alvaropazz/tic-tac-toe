@@ -1,4 +1,20 @@
 #!/usr/bin/env ruby
 
-puts "Tic-tac-toe is a game for two players, X and O, who take turns marking the spaces in a 3×3 grid. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.
-"
+class TicTacToe
+
+  def welcome_screen
+    puts "Tic-tac-toe is a game for two players, \n 
+    X and O, who take turns marking the spaces in a 3×3 grid. \n 
+    The player who succeeds in placing three of their marks \n 
+    in a horizontal, vertical, or diagonal row is the winner."
+  end
+
+  def initialize
+    @board = Board.new
+
+    @player_x = Player.new("X - Player")
+    @player_o = Player.new("O - Player")
+
+    @current_player = @player_x
+  end
+end
