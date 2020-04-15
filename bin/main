@@ -31,7 +31,7 @@ class TicTacToe
   # define a method to validate whether or not a space in the board is already taken
 
   def empty_space?(space)
-    if @board[space] == '' || @board[space] == ' ' || @board[space].nil?
+    if @board[space] == 'X' || @board[space] == 'O' || @board[space].nil?
       false
     else
       true
