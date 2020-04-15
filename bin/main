@@ -2,6 +2,7 @@
 
 class TicTacToe
   # define board and how it'll display to the user
+  puts board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 
   def play_board(board)
     puts " #{board[0]} | #{board[1]} | #{board[2]} "
@@ -82,4 +83,6 @@ class TicTacToe
     end
     play_board(board)
   end
+
+
 end
