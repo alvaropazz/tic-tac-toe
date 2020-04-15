@@ -65,6 +65,7 @@ class TicTacToe
 
   def game
     until over?
+      player_move
     end
     if won?
       puts "The winner is #{winner(board)}!"
