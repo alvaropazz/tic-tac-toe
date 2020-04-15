@@ -41,7 +41,7 @@ class TicTacToe
   # define whether or not an user's input is valid i.e. that it corresponds to one of
   # the spaces in the board
 
-  def valid_input(space)
+  def valid_input?(space)
     true if space == 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 && !empty_space?(space)
   end
 
