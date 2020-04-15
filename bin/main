@@ -41,4 +41,32 @@ class TicTacToe
   def valid_input
     true if index == 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 && !empty_space?
   end
+
+  # define a method to count the number of turns that've been taken
+
+  def turn_counter(board)
+    counter = 0
+    board.each do |token|
+      counter += 1 if %w[X O].include? token
+    end
+    counter
+  end
+
+  # use turn_counter to define the current_player method
+
+  def current_player(board)
+    turn_counter board.even? ? 'X' : 'O'
+  end
+
+  # define a loop for the game to run
+
+  def game(board)
+    turn(board) until over?(board)
+    if won?(board)
+      winner(board) == 'X' || winner(board) == 'O'
+      puts "The winner is #{winner(board)}!"
+    elsif draw?(board)
+      puts 'It\'s a draw'
+    end
+  end
 end
