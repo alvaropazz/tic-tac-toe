@@ -2,14 +2,16 @@
 
 class TicTacToe
   # define board and how it'll display to the user
-  puts board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+  def initialize
+    @board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+  end
 
-  def play_board(board)
-    puts " #{board[0]} | #{board[1]} | #{board[2]} "
+  def play_board(_board)
+    puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
     puts '-----------'
-    puts " #{board[3]} | #{board[4]} | #{board[5]} "
+    puts " #{@board[3]} | #{@board[4]} | #{@board[5]} "
     puts '-----------'
-    puts " #{board[6]} | #{board[7]} | #{board[8]} "
+    puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
   end
 
   # define which space within the board is selected
@@ -22,14 +24,14 @@ class TicTacToe
 
   # define which space in the board is taken depending on the user's input
 
-  def play(board, space, player)
-    board[space] = player
+  def play(space, player)
+    @board[space] = player
   end
 
   # define a method to validate whether or not a space in the board is already taken
 
-  def empty_space?(board, index)
-    if board[index] == '' || board[index] == ' ' || board[index].nil?
+  def empty_space?(space)
+    if @board[space] == '' || @board[space] == ' ' || @board[space].nil?
       false
     else
       true
@@ -39,15 +41,15 @@ class TicTacToe
   # define whether or not an user's input is valid i.e. that it corresponds to one of
   # the spaces in the board
 
-  def valid_input(board, index)
-    true if index == 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 && !empty_space?(board, index)
+  def valid_input(space)
+    true if space == 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 && !empty_space?(space)
   end
 
   # define a method to count the number of turns that've been taken
 
-  def turn_counter(board)
+  def turn_counter(_board)
     counter = 0
-    board.each do |token|
+    @board.each do |token|
       counter += 1 if %w[X O].include? token
     end
     counter
@@ -55,16 +57,16 @@ class TicTacToe
 
   # use turn_counter to define the current_player method
 
-  def current_player(board)
-    turn_counter board.even? ? 'X' : 'O'
+  def current_player
+    turn_counter.even? ? 'X' : 'O'
   end
 
   # define a loop for the game to run
 
-  def game(board)
-    turn(board) until over?(board)
-    if won?(board)
-      winner(board) == 'X' || winner(board) == 'O'
+  def game
+    until over?
+    end
+    if won?
       puts "The winner is #{winner(board)}!"
     elsif draw?(board)
       puts 'It\'s a draw'
@@ -73,37 +75,34 @@ class TicTacToe
 
   # define a method to ask the players for their input
 
-  def player_move(board)
+  def player_move(_board)
     puts 'Enter a number from 1 to 9'
     space_number = gets.strip
-    index = selected_space(space_number)
-    if valid_input?(board, index)
-      move(board, index, current_player(board))
-      player_move(board)
+    space = selected_space(space_number)
+    if valid_input?(space)
+      move(space, current_player)
+      play_board
+    else
+      player_move
     end
-    play_board(board)
   end
 
-  win_combos = [ 
-    [0,1,2],
-    [3,4,5],
-    [6,7,8],
-    [0,3,6],
-    [1,4,7],
-    [2,5,8],
-    [0,4,8],
-    [2,4,6] 
-    ]
+  win_combos = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ].freeze
 
-    def won?
-    end
+  def won?; end
 
-    def full_board?
-    end
+  def full_board?; end
 
-    def draw?
-    end
+  def draw?; end
 
-    def over?
-    end
+  def over?; end
 end
