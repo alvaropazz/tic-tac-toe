@@ -38,8 +38,8 @@ class TicTacToe
   # define whether or not an user's input is valid i.e. that it corresponds to one of
   # the spaces in the board
 
-  def valid_input
-    true if index == 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 && !empty_space?
+  def valid_input(board, index)
+    true if index == 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 && !empty_space?(board, index)
   end
 
   # define a method to count the number of turns that've been taken
@@ -68,5 +68,18 @@ class TicTacToe
     elsif draw?(board)
       puts 'It\'s a draw'
     end
+  end
+
+  # define a method to ask the players for their input
+
+  def player_move(board)
+    puts 'Enter a number from 1 to 9'
+    space_number = gets.strip
+    index = selected_space(space_number)
+    if valid_input?(board, index)
+      move(board, index, current_player(board))
+      player_move(board)
+    end
+    play_board(board)
   end
 end
