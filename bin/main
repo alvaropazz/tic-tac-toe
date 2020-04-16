@@ -58,7 +58,7 @@ class TicTacToe
   end
 
   # define a loop for the game to run
-  # it allows players to take turns and checks 
+  # it allows players to take turns and checks
   # whether or not the game is over after each turn
   ## the game is still missing the definition of the *over? *won? and *draw? methods
 
@@ -98,6 +98,10 @@ class TicTacToe
     [2, 4, 6]
   ].freeze
 
+  # for this method we need to check if the child arrays of the COMBOS array contain the same token 
+  # inside them, i.e. that the first position of the child array is equal to the second position of the child
+  # array, that the third position is equal to the previous two and that the *empty_space?* method
+  # is using the token used in the three positions of the child array 
   def won?; end
 
   def full_board?; end
