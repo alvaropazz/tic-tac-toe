@@ -8,10 +8,6 @@ This project is about creating a Tic Tac Toe game to be played from the command 
 
 - Ruby
 
-## Live Demo
-
-[Live Demo Link](https://livedemo.com)
-
 ## Getting Started
 
 **To set up this project locally please follow the intructions available at   to make the main file executable**
