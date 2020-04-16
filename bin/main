@@ -108,8 +108,15 @@ class TicTacToe
   # array, and that the third position's space mathces the two ones. additionally the method will 
   # check with the *empty_space?* method to determine if a space is not empty and is 
   # using the token used in the three positions of the child array 
+  # we'll use the *detect* enumerable method. this method outputs the first entry on our enumerable for which the 
+  # block conditions are true. in this case that position[0]== position[1] && position[1] == position[2] && 
+  # empty_space?(position[0])
 
-  def won?; end
+  def won?
+    COMBOS.detect do |combos_child|
+      @board[combos_child[0]] == @board[combos_child[1]] && @board[[]] && @board[[]] && empty_space?(combos_child[0])
+    end
+  end
 
   def full_board?; end
 
