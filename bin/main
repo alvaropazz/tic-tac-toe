@@ -116,7 +116,10 @@ class TicTacToe
     @board.all? { |space| %w[X O].include? space }
   end
 
-  def draw?; end
+  # the *draw?* method builds on top of the *won?* and *full_board?* methods
+  def draw? 
+    full? || !won?
+  end
 
   def over?; end
 
