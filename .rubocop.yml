@@ -54,7 +54,7 @@ Style/HashTransformValues:
 Metrics/PerceivedComplexity:
   Enabled: false
 Metrics/CyclomaticComplexity:
-  Enabled: true
+  Enabled: false
 Metrics/ModuleLength:
   Enabled: false
 Lint/LiteralAsCondition:
