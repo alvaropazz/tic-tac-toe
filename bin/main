@@ -126,7 +126,12 @@ class TicTacToe
     won? || draw?
   end
 
-  def winner; end
+  # the *winner* method builds on top of the *won?* method and outputs which of the players' token is the winner one
+  def winner
+    if won?
+      winner = @board[won?[0]]
+    end
+  end
 end
 
 player1234 = TicTacToe.new
