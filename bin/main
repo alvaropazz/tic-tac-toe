@@ -118,7 +118,7 @@ class TicTacToe
 
   # the *draw?* method builds on top of the *won?* and *full_board?* methods
   def draw?
-    full? || !won?
+    full_board? && !won?
   end
 
   # the *over?* method builds on top of the *won?* and *draw?* methods
