@@ -34,14 +34,15 @@ class TicTacToe
     @board[space] == 'X' || @board[space] == 'O' || !@board[space] == ' '
   end
 
-  # define whether or not an user's input is valid i.e. that it corresponds to one of
-  # the spaces in the board
+  # define a method to check whether or not an user's input is valid i.e. that it corresponds to one of
+  # the spaces in the board, and that it is not occupying an already used space
 
   def valid_input?(space)
     space.between?(0, 8) && !empty_space?(space)
   end
 
-  # define a method to count the number of turns that've been taken
+  # define a method to count the number of turns that've been taken, this is a helper method for the 
+  # *player* method that'll evaluate which token's turn is to be played when the *game* method is running
 
   def turn_counter
     counter = 0
@@ -73,6 +74,7 @@ class TicTacToe
 
   # define a method to ask the players for their input
   # if a player inputs and invalid move, *puts* 'Invalid move'
+  # it builds on top of the *selected_space* and *play* methods
 
   def player_move
     puts 'Enter a number from 1 to 9'
@@ -87,6 +89,8 @@ class TicTacToe
     end
   end
 
+  # 8 winning combinations, 3 horizontal, 3 vertical and 2 diagonal
+
   COMBOS = [
     [0, 1, 2],
     [3, 4, 5],
@@ -99,9 +103,12 @@ class TicTacToe
   ].freeze
 
   # for this method we need to check if the child arrays of the COMBOS array contain the same token 
-  # inside them, i.e. that the first position of the child array is equal to the second position of the child
-  # array, that the third position is equal to the previous two and that the *empty_space?* method
-  # is using the token used in the three positions of the child array 
+  # inside of each of their spaces, i.e. that the space occupied by the first position of the child array 
+  # contains the same token as the space occupied by the second position of the child
+  # array, and that the third position's space mathces the two ones. additionally the method will 
+  # check with the *empty_space?* method to determine if a space is not empty and is 
+  # using the token used in the three positions of the child array 
+
   def won?; end
 
   def full_board?; end
