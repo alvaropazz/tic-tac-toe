@@ -15,7 +15,7 @@ class TicTacToe
   end
 
   # define which space within the board is selected
-  # input is converted into a integer and substracter one so
+  # input is converted into a integer and substracted one so
   # that it matches the number of indexes
 
   def selected_space(space_number)
@@ -79,11 +79,11 @@ class TicTacToe
     space_number = gets.strip
     space = selected_space(space_number)
     if valid_input?(space) == true
-      play(space, current_player)
+      play(space, player)
       play_board
     else
-      player_move
       puts 'Invalid move'
+      player_move
     end
   end
 
@@ -106,5 +106,8 @@ class TicTacToe
 
   def over?; end
 
-  def winner?; end
+  def winner; end
 end
+
+player1234 = TicTacToe.new
+player1234.game
