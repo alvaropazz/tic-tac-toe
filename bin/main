@@ -41,7 +41,7 @@ class TicTacToe
     space.between?(0, 8) && !empty_space?(space)
   end
 
-  # define a method to count the number of turns that've been taken, this is a helper method for the 
+  # define a method to count the number of turns that've been taken, this is a helper method for the
   # *player* method that'll evaluate which token's turn is to be played when the *game* method is running
 
   def turn_counter
@@ -102,14 +102,14 @@ class TicTacToe
     [2, 4, 6]
   ].freeze
 
-  # for this method we need to check if the child arrays of the COMBOS array contain the same token 
-  # inside of each of their spaces, i.e. that the space occupied by the first position of the child array 
+  # for this method we need to check if the child arrays of the COMBOS array contain the same token
+  # inside of each of their spaces, i.e. that the space occupied by the first position of the child array
   # contains the same token as the space occupied by the second position of the child
-  # array, and that the third position's space mathces the two ones. additionally the method will 
-  # check with the *empty_space?* method to determine if a space is not empty and is 
-  # using the token used in the three positions of the child array 
-  # we'll use the *detect* enumerable method. this method outputs the first entry on our enumerable for which the 
-  # block conditions are true. in this case that position[0]== position[1] && position[1] == position[2] && 
+  # array, and that the third position's space mathces the two ones. additionally the method will
+  # check with the *empty_space?* method to determine if a space is not empty and that is
+  # using the token used in the three positions of the child array
+  # we'll use the *detect* enumerable method. this method outputs the first entry on our enumerable for which the
+  # block conditions are true. in this case that position[0]== position[1] && position[1] == position[2] &&
   # empty_space?(position[0])
 
   def won?
