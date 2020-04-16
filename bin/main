@@ -6,7 +6,7 @@ class TicTacToe
     @board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
   end
 
-  def play_board(_board)
+  def play_board
     puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
     puts '-----------'
     puts " #{@board[3]} | #{@board[4]} | #{@board[5]} "
@@ -31,23 +31,19 @@ class TicTacToe
   # define a method to validate whether or not a space in the board is already taken
 
   def empty_space?(space)
-    if @board[space] == 'X' || @board[space] == 'O' || @board[space].nil?
-      false
-    else
-      true
-    end
+    @board[space] == 'X' || @board[space] == 'O' || !@board[space] == ' '
   end
 
   # define whether or not an user's input is valid i.e. that it corresponds to one of
   # the spaces in the board
 
   def valid_input?(space)
-    true if space == 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 && !empty_space?(space)
+    space.between?(0, 8) && !empty_space?(space)
   end
 
   # define a method to count the number of turns that've been taken
 
-  def turn_counter(_board)
+  def turn_counter
     counter = 0
     @board.each do |token|
       counter += 1 if %w[X O].include? token
@@ -57,38 +53,41 @@ class TicTacToe
 
   # use turn_counter to define the current_player method
 
-  def current_player
+  def player
     turn_counter.even? ? 'X' : 'O'
   end
 
   # define a loop for the game to run
+  # it allows players to take turns and checks 
+  # whether or not the game is over after each turn
+  ## the game is still missing the definition of the *over? *won? and *draw? methods
 
   def game
-    until over?
-      player_move
-    end
+    player_move until over?
     if won?
-      puts "The winner is #{winner(board)}!"
-    elsif draw?(board)
+      puts "The winner is #{winner}!"
+    elsif draw?
       puts 'It\'s a draw'
     end
   end
 
   # define a method to ask the players for their input
+  # if a player inputs and invalid move, *puts* 'Invalid move'
 
-  def player_move(_board)
+  def player_move
     puts 'Enter a number from 1 to 9'
     space_number = gets.strip
     space = selected_space(space_number)
-    if valid_input?(space)
-      move(space, current_player)
+    if valid_input?(space) == true
+      play(space, current_player)
       play_board
     else
       player_move
+      puts 'Invalid move'
     end
   end
 
-  WIN = [
+  COMBOS = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
