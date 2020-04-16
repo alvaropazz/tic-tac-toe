@@ -121,7 +121,10 @@ class TicTacToe
     full? || !won?
   end
 
-  def over?; end
+  # the *over?* method builds on top of the *won?* and *draw?* methods 
+  def over?
+    won? || draw?
+  end
 
   def winner; end
 end
