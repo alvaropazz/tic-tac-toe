@@ -113,7 +113,7 @@ class TicTacToe
   # this method will check whether or not all the board's spaces are already filled up
   # it'll use the enumerable method *all?*
   def full_board?
-    @board.all? %w[X O].include? space
+    @board.all? { |space| %w[X O].include? space }
   end
 
   def draw?; end
