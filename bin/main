@@ -105,7 +105,7 @@ class TicTacToe
   def won?
     COMBOS.detect do |combos_child|
       @board[combos_child[0]] == @board[combos_child[1]] &&
-        @board[combos_child[1]] && @board[combos_child[2]] &&
+        @board[combos_child[1]] == @board[combos_child[2]] &&
         empty_space?(combos_child[0])
     end
   end
