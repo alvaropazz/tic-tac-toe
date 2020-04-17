@@ -29,5 +29,5 @@ class TicTacToe
   end
 end
 
-player1234 = TicTacToe.new
-player1234.game
+test_game = TicTacToe.new
+test_game.game
