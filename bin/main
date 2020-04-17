@@ -3,8 +3,19 @@ require_relative '../lib/gameboard.rb'
 
 class TicTacToe
   def initialize
-    @gameboard = GameBoard.new
+    
+    @board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+    @gameboard = GameBoard.new(@board)
   end
+  
+  def play_board
+    puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
+    puts '-----------'
+    puts " #{@board[3]} | #{@board[4]} | #{@board[5]} "
+    puts '-----------'
+    puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
+  end
+
 
   def game
     player_move until @gameboard.over?
@@ -21,7 +32,7 @@ class TicTacToe
     space = @gameboard.selected_space(space_number)
     if @gameboard.valid_input?(space) == true
       @gameboard.play(space, @gameboard.player)
-      @gameboard.play_board
+      play_board
     else
       puts 'Invalid move'
       player_move
