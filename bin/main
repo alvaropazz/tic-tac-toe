@@ -15,7 +15,7 @@ def game
   if gameboard.won?
     puts "The winner is #{gameboard.winner}!"
   elsif gameboard.draw?
-    puts 'It\'s a draw'
+    puts 'It\'s a draw!'
   end
 end
 
