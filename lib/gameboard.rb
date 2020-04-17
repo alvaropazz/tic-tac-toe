@@ -1,6 +1,6 @@
 class GameBoard
   def initialize
-     @board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+    @board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
   end
 
   def play_board
@@ -23,10 +23,9 @@ class GameBoard
     @board[space] == 'X' || @board[space] == 'O' || !@board[space] == ' '
   end
 
-
   # define a method to check whether or not an user's input is valid i.e. that it corresponds to one of
   # the spaces in the board, and that it is not occupying an already used space
-  
+
   def valid_input?(space)
     space.between?(0, 8) && !empty_space?(space)
   end
@@ -50,7 +49,7 @@ class GameBoard
   def player
     turn_counter.even? ? 'X' : 'O'
   end
-  
+
   # 8 winning combinations, 3 horizontal, 3 vertical and 2 diagonal
   COMBOS = [
     [0, 1, 2],
@@ -103,4 +102,3 @@ class GameBoard
     @board[won?[0]] if won?
   end
 end
- 

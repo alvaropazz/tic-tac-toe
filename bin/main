@@ -1,19 +1,11 @@
 #!/usr/bin/env ruby
-require_relative '../lib/gameboard.rb' 
+require_relative '../lib/gameboard.rb'
 
 class TicTacToe
-  # define board and how it'll display to the user
   def initialize
-   
-    #reate an object of gameboard object
     @gameboard = GameBoard.new
-
   end
 
-  # define a loop for the game to run
-  # it allows players to take turns and checks
-  # whether or not the game is over after each turn
-  ## the game is still missing the definition of the *over? *won? and *draw? methods
   def game
     player_move until @gameboard.over?
     if @gameboard.won?
@@ -23,14 +15,11 @@ class TicTacToe
     end
   end
 
-  # define a method to ask the players for their input
-  # if a player inputs and invalid move, *puts* 'Invalid move'
-  # it builds on top of the *selected_space* and *play* methods
   def player_move
     puts 'Enter a number from 1 to 9'
     space_number = gets.strip
-    space =  @gameboard.selected_space(space_number)
-    if  @gameboard.valid_input?(space) == true
+    space = @gameboard.selected_space(space_number)
+    if @gameboard.valid_input?(space) == true
       @gameboard.play(space, @gameboard.player)
       @gameboard.play_board
     else
@@ -38,7 +27,6 @@ class TicTacToe
       player_move
     end
   end
-
 end
 
 player1234 = TicTacToe.new
