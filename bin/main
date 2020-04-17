@@ -28,7 +28,7 @@ def player_move(gameboard, board)
     play_board(board)
   else
     puts 'Invalid move'
-    player_move
+    player_move(gameboard, board)
   end
 end
 game
