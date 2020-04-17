@@ -3,11 +3,10 @@ require_relative '../lib/gameboard.rb'
 
 class TicTacToe
   def initialize
-    
     @board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
     @gameboard = GameBoard.new(@board)
   end
-  
+
   def play_board
     puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
     puts '-----------'
@@ -15,7 +14,6 @@ class TicTacToe
     puts '-----------'
     puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
   end
-
 
   def game
     player_move until @gameboard.over?

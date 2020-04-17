@@ -1,6 +1,6 @@
 class GameBoard
   def initialize(myboard)
-   @board = myboard
+    @board = myboard
   end
 
   # define which space within the board is selected
