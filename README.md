@@ -21,7 +21,7 @@ Ruby installed.
 Either use the following [link](https://commandercoriander.net/blog/2013/02/16/making-a-ruby-script-executable/) to make the file executable or run the command $ ruby main to execute the program.
 
 ### Usage
-Check if the file has an instance of the TicTacToe class or instantiate a new object and run the game method on it.
+After making the main file executable, run the file on the command line to start a new game.
 
 ## Instructions
 
