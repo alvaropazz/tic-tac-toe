@@ -11,7 +11,6 @@ end
 
 def game
   board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-  gameboard = GameBoard.new(board)
   gameplay = GamePlay.new(board)
   player_move(gameplay, board) until gameplay.over?
   if gameplay.won?
