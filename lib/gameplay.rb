@@ -1,4 +1,8 @@
 class GamePlay
+  def initialize(myboard)
+    @board = myboard
+  end
+
   COMBOS = [
     [0, 1, 2],
     [3, 4, 5],
@@ -11,10 +15,11 @@ class GamePlay
   ].freeze
 
   def won?
+    gameboard = GameBoard.new(@board)
     COMBOS.detect do |combos_child|
       @board[combos_child[0]] == @board[combos_child[1]] &&
         @board[combos_child[1]] == @board[combos_child[2]] &&
-        empty_space?(combos_child[0])
+        gameboard.empty_space?(combos_child[0])
     end
   end
 
