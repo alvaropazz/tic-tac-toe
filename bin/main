@@ -1,108 +1,36 @@
 #!/usr/bin/env ruby
-
-class TicTacToe
-  # define board and how it'll display to the user
-  def initialize
-    @board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-  end
-
-  def play_board
-    puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
-    puts '-----------'
-    puts " #{@board[3]} | #{@board[4]} | #{@board[5]} "
-    puts '-----------'
-    puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
-  end
-
-  # define which space within the board is selected
-  # input is converted into a integer and substracter one so
-  # that it matches the number of indexes
-
-  def selected_space(space_number)
-    space_number.to_i - 1
-  end
-
-  # define which space in the board is taken depending on the user's input
-
-  def play(space, player)
-    @board[space] = player
-  end
-
-  # define a method to validate whether or not a space in the board is already taken
-
-  def empty_space?(space)
-    @board[space] == 'X' || @board[space] == 'O' || !@board[space] == ' '
-  end
-
-  # define whether or not an user's input is valid i.e. that it corresponds to one of
-  # the spaces in the board
-
-  def valid_input?(space)
-    space.between?(0, 8) && !empty_space?(space)
-  end
-
-  # define a method to count the number of turns that've been taken
-
-  def turn_counter
-    counter = 0
-    @board.each do |token|
-      counter += 1 if %w[X O].include? token
-    end
-    counter
-  end
-
-  # use turn_counter to define the current_player method
-
-  def player
-    turn_counter.even? ? 'X' : 'O'
-  end
-
-  # define a loop for the game to run
-  # it allows players to take turns and checks 
-  # whether or not the game is over after each turn
-  ## the game is still missing the definition of the *over? *won? and *draw? methods
-
-  def game
-    player_move until over?
-    if won?
-      puts "The winner is #{winner}!"
-    elsif draw?
-      puts 'It\'s a draw'
-    end
-  end
-
-  # define a method to ask the players for their input
-  # if a player inputs and invalid move, *puts* 'Invalid move'
-
-  def player_move
-    puts 'Enter a number from 1 to 9'
-    space_number = gets.strip
-    space = selected_space(space_number)
-    if valid_input?(space) == true
-      play(space, current_player)
-      play_board
-    else
-      player_move
-      puts 'Invalid move'
-    end
-  end
-
-  COMBOS = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-  ].freeze
-
-  def won?; end
-
-  def full_board?; end
-
-  def draw?; end
-
-  def over?; end
+require_relative '../lib/gameboard.rb'
+require_relative '../lib/gameplay.rb'
+def play_board(board)
+  puts " #{board[0]} | #{board[1]} | #{board[2]} "
+  puts '-----------'
+  puts " #{board[3]} | #{board[4]} | #{board[5]} "
+  puts '-----------'
+  puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
+
+def game
+  board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+  gameplay = GamePlay.new(board)
+  player_move(gameplay, board) until gameplay.over?
+  if gameplay.won?
+    puts "The winner is #{gameplay.winner}!"
+  elsif gameplay.draw?
+    puts 'It\'s a draw!'
+  end
+end
+
+def player_move(gameboard, board)
+  gameboard = GameBoard.new(board)
+  puts 'Enter a number from 1 to 9'
+  space_number = gets.strip
+  space = gameboard.selected_space(space_number)
+  if gameboard.valid_input?(space) == true
+    gameboard.play(space, gameboard.player)
+    play_board(board)
+  else
+    puts 'Invalid move'
+    player_move(gameboard, board)
+  end
+end
+game
