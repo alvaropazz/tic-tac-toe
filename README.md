@@ -11,10 +11,8 @@ This project is about creating a Tic Tac Toe game to be played from the command 
 ### Prerequisites
 Ruby installed.
 Clone this repository on your local environment:
-- From the repository, click + in the global sidebar and select Clone this repository under Get to work.
-- Copy the clone command (either the SSH format or the HTTPS).
 - From a terminal window, change to the local directory where you want to clone your repository. 
-- Clone using the command ```$ git clone https://github.com/usename/repo```.
+- Clone using the following command, for HTTPS: ```git clone https://github.com/alvaropazz/tic-tac-toe.git``` for SSH ```git clone git@github.com:alvaropazz/tic-tac-toe.git```.
 
 ### Setup
 Either use the following [link](https://commandercoriander.net/blog/2013/02/16/making-a-ruby-script-executable/) to make the file executable and type ```$ main``` on the command line, or run the command ```$ ruby bin/main.rb``` on the directory where the repo is stored to execute the program.
