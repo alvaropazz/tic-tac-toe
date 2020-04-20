@@ -13,9 +13,10 @@ This project is about creating a Tic Tac Toe game to be played from the command 
 
 ### Prerequisites
 Ruby installed.
+Clone this repository on your local environment. 
 
 ### Setup
-Either use the following [link](https://commandercoriander.net/blog/2013/02/16/making-a-ruby-script-executable/) to make the file executable and type ```$ main``` on the command line, or run the command ```$ ruby bin/main.rb``` from the firectory where the repo is stored to execute the program.
+Either use the following [link](https://commandercoriander.net/blog/2013/02/16/making-a-ruby-script-executable/) to make the file executable and type ```$ main``` on the command line, or run the command ```$ ruby bin/main.rb``` on the directory where the repo is stored to execute the program.
 
 ## Instructions
 
