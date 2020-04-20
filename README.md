@@ -18,10 +18,7 @@ To get a local copy up and running follow these simple example steps.
 Ruby installed.
 
 ### Setup
-Either use the following [link](https://commandercoriander.net/blog/2013/02/16/making-a-ruby-script-executable/) to make the file executable or run the command $ ruby main to execute the program.
-
-### Usage
-After making the main file executable, run the file on the command line to start a new game.
+Either use the following [link](https://commandercoriander.net/blog/2013/02/16/making-a-ruby-script-executable/) to make the file executable and type ```main``` on the command line, or run the command ```$ ruby bin/main.rb``` to execute the program.
 
 ## Instructions
 
