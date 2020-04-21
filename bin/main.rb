@@ -126,13 +126,13 @@ class TicTacToe
     won? || draw?
   end
 
-  # the *winner* method builds on top of the *won?* method and outputs 
-  # the first element of the winner array selected by the *won?* method when 
+  # the *winner* method builds on top of the *won?* method and outputs
+  # the first element of the winner array selected by the *won?* method when
   # the *won?* method is true
   def winner
     @board[won?[0]] if won?
   end
 end
 
-player1234 = TicTacToe.new
-player1234.game
+# player1234 = TicTacToe.new
+# player1234.play_board
