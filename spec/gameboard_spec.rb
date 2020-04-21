@@ -2,5 +2,5 @@
 # require_relative '../lib/gameboard.rb'
 
 # describe GameBoard do
-  
+
 # end
