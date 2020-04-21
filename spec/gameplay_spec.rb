@@ -1,6 +1,6 @@
-# spec/gameplay_spec.rb
-require_relative '../lib/gameplay.rb'
+# # spec/gameplay_spec.rb
+# require_relative '../lib/gameplay.rb'
 
-describe GamePlay do
+# describe GamePlay do
   
-end
+# end
