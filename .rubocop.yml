@@ -50,3 +50,5 @@ Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
   Enabled: false
+Lint/ShadowedArgument:
+  Enabled: false
