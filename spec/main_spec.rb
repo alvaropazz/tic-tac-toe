@@ -8,5 +8,15 @@ RSpec.describe TicTacToe do
       expect(test_var.instance_variable_get(:@board)).to eq([" "," "," "," "," "," "," "," "," "])
     end
   end
-end
 
+  describe '#game' do
+    it 'asks the user to input a number from 1 to 9' do
+      test_var2 = TicTacToe.new
+        allow($stdout).to receive(:puts)
+        allow(test_var2).to receive(:over?).and_return(false, true)
+        expect(test_var2).to receive(:gets).at_least(:once).and_return("1")
+
+        test_var2.game
+    end
+  end
+end
