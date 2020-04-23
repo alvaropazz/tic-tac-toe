@@ -17,17 +17,17 @@ RSpec.describe TicTacToe do
         $stdout.string
       end
 
-      board = %w[X X X X O O X O O]
+      board = %w[X O X O X O X O X]
       test_var = TicTacToe.new
       test_var.instance_variable_set(:@board, board)
 
       output = capture_puts { test_var.play_board }
 
-      expect(output).to include(' X | X | X ')
+      expect(output).to include(' X | O | X ')
       expect(output).to include('-----------')
-      expect(output).to include(' X | O | O ')
+      expect(output).to include(' O | X | O ')
       expect(output).to include('-----------')
-      expect(output).to include(' X | O | O ')
+      expect(output).to include(' X | O | X ')
     end
   end
 
