@@ -123,7 +123,7 @@ RSpec.describe TicTacToe do
     end
   end
 
-  describe 'won?' do
+  describe '#won?' do
     it 'alerts the game when a winning combination has been achieved' do
       test_var = TicTacToe.new
       board = %w[X X X O X O X O X]
@@ -132,22 +132,22 @@ RSpec.describe TicTacToe do
     end
   end
 
-  describe '' do
+  describe '#full_board?' do
     it '' do
     end
   end
 
-  describe '' do
+  describe '#draw?' do
     it '' do
     end
   end
 
-  describe '' do
+  describe '#over?' do
     it '' do
     end
   end
 
-  describe '' do
+  describe '#winner' do
     it '' do
     end
   end
