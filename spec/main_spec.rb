@@ -34,7 +34,7 @@ RSpec.describe TicTacToe do
   describe '#selected_space' do
     it 'converts the users input into an integer' do
       test_var = TicTacToe.new
-      expect(test_var.selected_space("1")).to be_an(Integer)
+      expect(test_var.selected_space('1')).to be_an(Integer)
     end
   end
 
@@ -102,24 +102,24 @@ RSpec.describe TicTacToe do
   end
 
   describe '#player_move' do
-   it 'asks the user for a move on the board' do
-    test_var = TicTacToe.new
-    allow($stdout).to receive(:puts)
-    expect(test_var).to receive(:gets).and_return('1')
+    it 'asks the user for a move on the board' do
+      test_var = TicTacToe.new
+      allow($stdout).to receive(:puts)
+      expect(test_var).to receive(:gets).and_return('1')
 
-    test_var.player_move
-   end
+      test_var.player_move
+    end
 
-   it 'recieves the user\'s move and displays it in the board' do
-    test_var = TicTacToe.new
-    allow($stdout).to receive(:puts)
-    expect(test_var).to receive(:gets).and_return('1')
-    expect(test_var).to receive(:play_board)
+    it 'recieves the user\'s move and displays it in the board' do
+      test_var = TicTacToe.new
+      allow($stdout).to receive(:puts)
+      expect(test_var).to receive(:gets).and_return('1')
+      expect(test_var).to receive(:play_board)
 
-    test_var.player_move
+      test_var.player_move
 
-    board = test_var.instance_variable_get(:@board)
-    expect(board).to eql(['X', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '])
-   end
+      board = test_var.instance_variable_get(:@board)
+      expect(board).to eql(['X', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '])
+    end
   end
 end
