@@ -133,22 +133,38 @@ RSpec.describe TicTacToe do
   end
 
   describe '#full_board?' do
-    it '' do
+    it 'alerts the game when there are no more empty spaces and no winning combos have been achieved' do
+      test_var = TicTacToe.new
+      board = %w[O X O O O X X O X]
+      test_var.instance_variable_set(:@board, board)
+      expect(test_var.full_board?).to be(true)
     end
   end
 
   describe '#draw?' do
-    it '' do
+    it 'alerts when the board is full and no player has ahieved a winning combination' do
+      test_var = TicTacToe.new
+      board = %w[X O X X O O O X O]
+      test_var.instance_variable_set(:@board, board)
+      expect(test_var.draw?).to be(true)
     end
   end
 
   describe '#over?' do
-    it '' do
+    it 'returns true when a winning combo has been achieved' do
+      test_var = TicTacToe.new
+      board = %w[X O X X O O O X O]
+      test_var.instance_variable_set(:@board, board)
+      expect(test_var.over?).to be(true)
     end
   end
 
   describe '#winner' do
-    it '' do
+    it 'returns the winning token' do
+      test_var = TicTacToe.new
+      board = %w[X X X O X O X O X]
+      test_var.instance_variable_set(:@board, board)
+      expect(test_var.winner).to eql('X')
     end
   end
 end
