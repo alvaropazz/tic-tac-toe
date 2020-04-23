@@ -122,4 +122,33 @@ RSpec.describe TicTacToe do
       expect(board).to eql(['X', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '])
     end
   end
+
+  describe 'won?' do
+    it 'alerts the game when a winning combination has been achieved' do
+      test_var = TicTacToe.new
+      board = %w[X X X O X O X O X]
+      test_var.instance_variable_set(:@board, board)
+      expect(test_var.won?).to match_array([0, 1, 2])
+    end
+  end
+
+  describe '' do
+    it '' do
+    end
+  end
+
+  describe '' do
+    it '' do
+    end
+  end
+
+  describe '' do
+    it '' do
+    end
+  end
+
+  describe '' do
+    it '' do
+    end
+  end
 end
