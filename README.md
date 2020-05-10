@@ -32,7 +32,7 @@ Either use the following [link](https://commandercoriander.net/blog/2013/02/16/m
 👤 **Alvaro Paz**
 
 - Github: [@alvaropazz](https://github.com/alvaropazz)
-- Twitter: [@alvaropazz](https://twitter.com/alvaropazz)
+- Twitter: [@alvaroipazr](https://twitter.com/alvaroipazr)
 - Linkedin: [linkedin](https://www.linkedin.com/in/alvaropaz/)
 
 👤 **Ugochukwu Omeje**
